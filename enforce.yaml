@@ -1,0 +1,204 @@
+- title: Inovelli Red Series Dimmer
+  # Some basic settings to apply to all of my Red dimmers.
+
+  enforce:
+    - label: AC Power Type
+      value: 1
+
+    - label: Minimum Dim Level
+      value: 30
+
+    - label: Physical Button Delay Period
+      value: 5
+
+    - label: Button Delay and Scene Control
+      value: 1
+
+    - label: Physical Button Delay Period
+      value: 5
+
+    - label: Button Delay Period
+      value: 5
+
+    - label: Button Delay
+      value: 1
+
+  match:
+    label: LZW31-SN
+
+
+- title: Hot water heater momentary switch
+  # Make sure this relay is ALWAYS a momentary switch
+
+  enforce:
+    - label: Input Type for S1 Terminal
+      value: 3
+
+  match:
+    name: Hot Water Heater Circulation Pump
+
+
+- title: Motion Sensors, quick off
+  # Some sensors need to have quick PIR resets.
+
+  enforce:
+    - label: PIR Sensor Timeout
+      value: 60
+
+    - label: PIR Reset Time
+      value: 60
+
+  match:
+    name: 
+      - Laundry Room Sensor
+      - Guest Bathroom Sensor
+
+
+- title: Aeotec Multisensor 6 (1.7)
+  # Setting for all of my Multisensor 6s, but only Firmware 1.7
+
+  enforce:
+    - label: PIR Sensor Timeout
+      value: 99
+
+    - label: PIR Sensitivity
+      value: 4
+
+    - label: Temperature Threshold Unit
+      value: 2
+
+    - label: Selective Reporting
+      value: 1
+
+    - label: Temperature Change Threshold
+      value: 10
+
+    - label: Humidity Change Threshold
+      value: 2
+
+    - label: Luminance Change Threshold
+      value: 10
+
+  match:
+    label: ZW100
+    firmwareVersion: 
+      - 1.7 # Restric this one to ONLY match this firmware version.
+
+
+- title: Aeotec Multisensor 6 (1.14)
+  # Setting for all of my Multisensor 6s, but only Firmware 1.14
+
+  enforce:
+    - label: PIR Sensitivity
+      value: 4
+
+    - label: Temperature Threshold Unit
+      value: 2
+
+    - label: Selective Reporting
+      value: 1
+
+    - label: Temperature Change Threshold
+      value: 10
+
+    - label: Humidity Change Threshold
+      value: 2
+
+    - label: Luminance Change Threshold
+      value: 10
+
+  match:
+    label: ZW100
+    firmwareVersion:
+      - 1.14
+
+
+- title: Aeotec Multisensor 7 (1.1, 1.3)
+  # Settings for all of my Multisensor 7s
+
+  enforce:
+    - label: Motion Retrigger Timeout
+      value: 30
+
+    - label: Motion Reset Timeout
+      value: 60
+
+    - label: Motion Sensitivity
+      value: 8
+
+    - label: Motion Report Type
+      value: 0
+
+    - label: Change Threshold Reporting Reporting
+      value: 1
+
+    - label: Change Threshold Reporting Temperature
+      value: 5
+
+    - label: Change Threshold Reporting Humidity
+      value: 1
+
+    - label: Change Threshold Reporting Luminance
+      value: 10
+
+    - label: Temperature Scale
+      value: 1
+
+  match:
+    label: ZWA024
+    firmwareVersion:
+      - 1.1
+      - 1.3
+
+
+- title: Inovelli 4-in-1 sensors
+  # Settings for all of my Inovelli sensors
+
+  enforce:
+    - label: Motion Sensor Sensitivity
+      value: 8
+
+    - label: Humidity Reporting Interval 
+      value: 60
+
+    - label: Luminance Reporting Interval
+      value: 60
+
+    - label: Temperature Reporting Interval
+      value: 60
+
+    - label: Report Only When Thresholds Are Met
+      value: 1
+
+    - label: Temperature Report Threshold
+      value: 3 # 0.3 C = 0.54 F
+
+    - label: Humidity Report Threshold
+      value: 1
+
+    - label: Luminance Report Threshold
+      value: 10
+
+  match:
+    label: LZW60
+
+
+- title: Auto Off Timer
+  # Set the Auto-off property (with various caps and punctuation variations) to 1200 seconds for the named nodes.
+
+  enforce:
+    - label: Auto Off Timer
+      value: 1200 
+
+    - label: Auto-Off Timer
+      value: 1200
+
+    - label: Auto-off Timer
+      value: 1200
+
+  match:
+    name:
+      - Laundry Room Dimmer
+      - Master Bathroom Dimmer
+      - Second Bathroom Dimmer
+      - Guest Bathroom Dimmer
